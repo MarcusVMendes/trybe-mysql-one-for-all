@@ -7,14 +7,14 @@ USE `SpotifyClone`;
 CREATE TABLE `users` (
     user_id INT(11) PRIMARY KEY AUTO_INCREMENT,
 	user_name VARCHAR(50) NOT NULL,
-    age INT(11) NOT NULL
-    signature_id NOT NULL
+    age INT(11) NOT NULL,
+    signature_id INT(11) NOT NULL,
     FOREIGN KEY(signature_id) REFERENCES premium(signature_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `artists` (
     artist_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    artist_name VARCHAR(50) NOT NULL,
+    artist_name VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE `albums`(
@@ -31,9 +31,9 @@ CREATE TABLE `premium` (
 ) ENGINE=InnoDB;
 
 CREATE TABLE `songs` (
-	song_id INT(11) PRIMARY_KEY AUTO_INCREMENT,
+	song_id INT(11) PRIMARY KEY AUTO_INCREMENT,
     song_name VARCHAR(50) NOT NULL,
-    album_id NOT NULL,
+    album_id INT(11) NOT NULL,
     FOREIGN KEY(album_id) REFERENCES albums(album_id)
 ) ENGINE=InnoDB;
 
@@ -88,8 +88,8 @@ VALUES
     ('Dance With Her Own', 1),
     ('Troubles Of My Inner Fire', 2),
     ('Time Fireworks', 2),
-    ('Magic Circus' 3),
-    ('Honey, So Do I' 3),
+    ('Magic Circus', 3),
+    ('Honey, So Do I', 3),
     ('Sweetie, 'Let's Go Wild' 3),
     ('She Knows', 3),
     ('Fantasy For Me', 4),
@@ -108,7 +108,7 @@ VALUES
     (1, 6),
     (1, 14),
     (1, 16),
-    (2, 13)
+    (2, 13),
     (2, 17),
     (2, 2),
     (2, 15),
@@ -130,10 +130,10 @@ VALUES
     (3, 1),
     (4, 4);
 
-
   -- Composit Primary Keys Sintaxe:
   -- https://qastack.com.br/programming/217945/can-i-have-multiple-primary-keys-in-a-single-table
   -- https://www.youtube.com/watch?v=SydCFe5eF4o
 
   -- single quote problem at song 'Sweetie, Let's Go Wild'
   -- https://qastack.com.br/programming/1912095/how-to-insert-a-value-that-contains-an-apostrophe-single-quote
+  
